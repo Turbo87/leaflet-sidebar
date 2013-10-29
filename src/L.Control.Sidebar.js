@@ -17,6 +17,8 @@ L.Control.Sidebar = L.Control.extend({
             .on(content, 'click', stop)
             .on(content, 'mousedown', stop)
             .on(content, 'dblclick', stop)
+            .on(content, 'mousewheel', stop)
+            .on(content, 'MozMousePixelScroll', stop)
             .on(content, 'click', L.DomEvent.preventDefault);
 
         // Search for close button and assign event handler
