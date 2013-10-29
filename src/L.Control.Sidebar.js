@@ -16,6 +16,7 @@ L.Control.Sidebar = L.Control.extend({
         L.DomEvent
             .on(content, 'click', stop)
             .on(content, 'mousedown', stop)
+            .on(content, 'touchstart', stop)
             .on(content, 'dblclick', stop)
             .on(content, 'mousewheel', stop)
             .on(content, 'MozMousePixelScroll', stop)
