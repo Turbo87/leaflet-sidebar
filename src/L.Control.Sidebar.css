@@ -78,3 +78,14 @@
         left: 460px;
     }
 }
+
+.leaflet-sidebar .close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    color: #333;
+    font-size: 25pt;
+    line-height: 1em;
+    text-decoration: none;
+}

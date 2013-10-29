@@ -18,6 +18,17 @@ L.Control.Sidebar = L.Control.extend({
             .on(content, 'mousedown', stop)
             .on(content, 'dblclick', stop)
             .on(content, 'click', L.DomEvent.preventDefault);
+
+        // Search for close button and assign event handler
+        if (content.getElementsByClassName) {
+            var sidebar = this;
+            var close = content.getElementsByClassName('close');
+            for (var i = 0, len = close.length; i < len; i++) {
+                L.DomEvent.on(close[i], 'click', function () {
+                    sidebar.hide();
+                });
+            };
+        }
     },
 
     addTo: function (map) {
