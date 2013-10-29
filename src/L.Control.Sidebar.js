@@ -49,6 +49,8 @@ L.Control.Sidebar = L.Control.extend({
         var controlContainer = map._controlContainer;
         controlContainer.insertBefore(container, controlContainer.firstChild);
 
+        this._map = map;
+
         return this;
     },
 
@@ -61,11 +63,21 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     show: function () {
-        L.DomUtil.addClass(this._container, 'leaflet-sidebar-visible')
+        if (!L.DomUtil.hasClass(this._container, 'leaflet-sidebar-visible')) {
+            L.DomUtil.addClass(this._container, 'leaflet-sidebar-visible')
+            this._map.panBy([-this._container.offsetWidth/2, 0], {
+                duration: 0.5
+            });
+        }
     },
 
     hide: function () {
-        L.DomUtil.removeClass(this._container, 'leaflet-sidebar-visible')
+        if (L.DomUtil.hasClass(this._container, 'leaflet-sidebar-visible')) {
+            L.DomUtil.removeClass(this._container, 'leaflet-sidebar-visible')
+            this._map.panBy([this._container.offsetWidth/2, 0], {
+                duration: 0.5
+            });
+        }
     }
 });
 
