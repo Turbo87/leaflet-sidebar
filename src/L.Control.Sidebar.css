@@ -22,13 +22,15 @@
     transition: left 0.5s;
 }
 
-.leaflet-sidebar-content {
+.leaflet-sidebar > .leaflet-control {
     height: 100%;
     width: 100%;
 
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 8px 24px;
+
+    font-size: 1.1em;
 
     background: white;
     box-shadow: 0 1px 7px rgba(0,0,0,0.65);
@@ -42,7 +44,7 @@
         padding: 0;
     }
 
-  .leaflet-sidebar-content {
+  .leaflet-sidebar > .leaflet-control {
     box-shadow: none;
     -webkit-border-radius: 0;
     border-radius: 0;
