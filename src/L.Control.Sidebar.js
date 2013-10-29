@@ -2,6 +2,24 @@ L.Control.Sidebar = L.Control.extend({
     options: {
     },
 
+    initialize: function (placeholder, options) {
+        L.setOptions(this, options);
+
+        // Find content container
+        var content = this._contentContainer = L.DomUtil.get(placeholder);
+
+        // Remove the content container from its original parent
+        content.parentNode.removeChild(content);
+
+        // Make sure we don't drag the map when we interact with the content
+        var stop = L.DomEvent.stopPropagation;
+        L.DomEvent
+            .on(content, 'click', stop)
+            .on(content, 'mousedown', stop)
+            .on(content, 'dblclick', stop)
+            .on(content, 'click', L.DomEvent.preventDefault);
+    },
+
     addTo: function (map) {
         var l = 'leaflet-';
 
@@ -9,16 +27,11 @@ L.Control.Sidebar = L.Control.extend({
         var container = this._container =
             L.DomUtil.create('div', l + 'sidebar');
 
-        // Create content container
-        var contentContainer = this._contentContainer =
-            L.DomUtil.create('div', l + 'sidebar-content ' + l + 'control', container);
-
-        var stop = L.DomEvent.stopPropagation;
-        L.DomEvent
-            .on(contentContainer, 'click', stop)
-            .on(contentContainer, 'mousedown', stop)
-            .on(contentContainer, 'dblclick', stop)
-            .on(contentContainer, 'click', L.DomEvent.preventDefault);
+        // Style and attach content container
+        var content = this._contentContainer;
+        L.DomUtil.addClass(content, l + 'sidebar-content');
+        L.DomUtil.addClass(content, l + 'control');
+        container.appendChild(content);
 
         // Attach sidebar container to controls container
         var controlContainer = map._controlContainer;
@@ -44,6 +57,6 @@ L.Control.Sidebar = L.Control.extend({
     }
 });
 
-L.control.sidebar = function (options) {
-    return new L.Control.Sidebar(options);
+L.control.sidebar = function (placeholder, options) {
+    return new L.Control.Sidebar(placeholder, options);
 };
