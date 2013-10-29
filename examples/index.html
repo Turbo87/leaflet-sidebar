@@ -27,6 +27,8 @@
         <h1>leaflet-sidebar</h1>
 
         <p>A responsive sidebar for leaflet maps.</p>
+
+        <p>Click on the marker to show the sidebar again when you've closed it.</p>
     </div>
 
     <div id="map"></div>
@@ -47,6 +49,14 @@
         map.addControl(sidebar);
 
         sidebar.show();
+
+        var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
+            sidebar.show();
+        });
+
+        map.on('click', function () {
+            sidebar.hide();
+        })
     </script>
 </body>
 </html>
