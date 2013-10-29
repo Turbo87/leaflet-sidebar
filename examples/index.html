@@ -48,7 +48,9 @@
         var sidebar = L.control.sidebar('sidebar');
         map.addControl(sidebar);
 
-        sidebar.show();
+        setTimeout(function () {
+            sidebar.show();
+        }, 500);
 
         var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
             sidebar.show();
