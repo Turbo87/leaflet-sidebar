@@ -139,11 +139,19 @@
 
 .leaflet-sidebar .close {
     position: absolute;
-    right: 10px;
-    top: 5px;
+    right: 20px;
+    top: 20px;
+    width: 31px;
+    height: 31px;
 
     color: #333;
     font-size: 25pt;
     line-height: 1em;
-    text-decoration: none;
+    text-align: center;
+    background: white;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    cursor: pointer;
+
+    z-index: 8;
 }

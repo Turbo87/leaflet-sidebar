@@ -1,5 +1,6 @@
 L.Control.Sidebar = L.Control.extend({
     options: {
+        closeButton: true,
         position: 'left'
     },
 
@@ -22,17 +23,6 @@ L.Control.Sidebar = L.Control.extend({
             .on(content, 'mousewheel', stop)
             .on(content, 'MozMousePixelScroll', stop)
             .on(content, 'click', L.DomEvent.preventDefault);
-
-        // Search for close button and assign event handler
-        if (content.getElementsByClassName) {
-            var sidebar = this;
-            var close = content.getElementsByClassName('close');
-            for (var i = 0, len = close.length; i < len; i++) {
-                L.DomEvent.on(close[i], 'click', function () {
-                    sidebar.hide();
-                });
-            };
-        }
     },
 
     addTo: function (map) {
@@ -46,6 +36,12 @@ L.Control.Sidebar = L.Control.extend({
         var content = this._contentContainer;
         L.DomUtil.addClass(content, l + 'control');
         container.appendChild(content);
+
+        // Create close button and attach it if configured
+        if (this.options.closeButton) {
+            var close = L.DomUtil.create('a', 'close', container);
+            close.innerHTML = '&times;'
+        }
 
         // Attach sidebar container to controls container
         var controlContainer = map._controlContainer;

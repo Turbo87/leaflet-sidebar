@@ -27,8 +27,6 @@
 </head>
 <body>
     <div id="sidebar">
-        <a class="close" href="#" aria-hidden="true">&times;</a>
-
         <h1>leaflet-sidebar</h1>
 
         <p>A responsive sidebar plugin for for <a href="http://leafletjs.com/">Leaflet</a>, a JS library for interactive maps.</p>
@@ -61,6 +59,7 @@
         }).addTo(map);
 
         var sidebar = L.control.sidebar('sidebar', {
+            closeButton: true,
             position: 'left'
         });
         map.addControl(sidebar);

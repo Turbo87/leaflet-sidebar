@@ -16,7 +16,6 @@ Add a content container somewhere in your document:
 
 ~~~~html
 <div id="sidebar">
-    <a class="close" href="#" aria-hidden="true">&times;</a>
     <h1>leaflet-sidebar</h1>
 </div>
 ~~~~
@@ -54,7 +53,7 @@ Do not call `show()` directly after adding the control to the map. The `setTimeo
 The sidebar can be configured with these options:
 
 - **position**: Can be `left` (default) or `right` and shouldn't need explaining.
-
+- **closeButton*: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
 
 ## License
 
