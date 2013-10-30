@@ -62,6 +62,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('lint', ['jshint', 'csslint']);
+  grunt.registerTask('build', ['clean', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['clean', 'lint', 'build']);
 
 };
