@@ -21,8 +21,7 @@ L.Control.Sidebar = L.Control.extend({
             .on(content, 'touchstart', stop)
             .on(content, 'dblclick', stop)
             .on(content, 'mousewheel', stop)
-            .on(content, 'MozMousePixelScroll', stop)
-            .on(content, 'click', L.DomEvent.preventDefault);
+            .on(content, 'MozMousePixelScroll', stop);
     },
 
     addTo: function (map) {
