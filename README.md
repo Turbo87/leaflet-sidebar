@@ -7,6 +7,8 @@ A responsive sidebar plugin for for [Leaflet](http://leafletjs.com/), a JS libra
 
 ## Examples
 
+![Basic example](http://turbo87.github.io/leaflet-sidebar/leaflet-sidebar.gif)
+
 Examples are available in the `examples` folder and on Github Pages:
 
 * [Basic example](http://turbo87.github.io/leaflet-sidebar/examples/)
