@@ -86,6 +86,15 @@ L.Control.Sidebar = L.Control.extend({
         }
     },
 
+    getContainer: function () {
+        return this._contentContainer;
+    },
+
+    setContent: function (content) {
+        this.getContainer().innerHTML = content;
+        return this;
+    },
+
     getOffset: function () {
         if (this.options.position === 'right') {
             return -this._container.offsetWidth;

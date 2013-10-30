@@ -53,6 +53,13 @@ setTimeout(function () {
 
 Do not call `show()` directly after adding the control to the map. The `setTimeout` will work around some CSS quirks for you.
 
+The content of the sidebar can be changed dynamically:
+
+~~~~javascript
+sidebar.setContent('test <b>test</b> test');
+~~~~
+
+If you need more flexibility you can use `sidebar.getContainer()` to get the content container element or use e.g. jQuery on the `<div id="sidebar">` element.
 
 ### Options
 
