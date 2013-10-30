@@ -81,7 +81,7 @@ If you need more flexibility you can use `sidebar.getContainer()` to get the con
 The sidebar can be configured with these options:
 
 - **position**: Can be `left` (default) or `right` and shouldn't need explaining.
-- **closeButton*: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
+- **closeButton**: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
 
 
 ## Compatibility
@@ -97,4 +97,4 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 
 ## License
 
-leaflet-sidebar is free software, and may be redistributed under the MIT LICENSE.
+leaflet-sidebar is free software, and may be redistributed under the MIT license.
