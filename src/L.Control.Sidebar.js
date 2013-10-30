@@ -39,7 +39,7 @@ L.Control.Sidebar = L.Control.extend({
         // Create close button and attach it if configured
         if (this.options.closeButton) {
             var close = L.DomUtil.create('a', 'close', container);
-            close.innerHTML = '&times;'
+            close.innerHTML = '&times;';
         }
 
         // Attach sidebar container to controls container
@@ -65,7 +65,7 @@ L.Control.Sidebar = L.Control.extend({
 
     show: function () {
         if (!this.isVisible()) {
-            L.DomUtil.addClass(this._container, 'visible')
+            L.DomUtil.addClass(this._container, 'visible');
             this._map.panBy([-this.getOffset() / 2, 0], {
                 duration: 0.5
             });
@@ -74,7 +74,7 @@ L.Control.Sidebar = L.Control.extend({
 
     hide: function () {
         if (this.isVisible()) {
-            L.DomUtil.removeClass(this._container, 'visible')
+            L.DomUtil.removeClass(this._container, 'visible');
             this._map.panBy([this.getOffset() / 2, 0], {
                 duration: 0.5
             });
