@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -51,6 +53,22 @@ module.exports = function(grunt) {
           'dist/<%= pkg.name %>-<%= pkg.version%>.min.css': ['<%= concat.css.dest %>']
         }
       }
+    },
+    zip: {
+      dist: {
+        router: function (filepath) {
+          return path.basename(filepath);
+        },
+        src: [
+          'README.md',
+          'LICENSE',
+          'dist/<%= pkg.name %>-<%= pkg.version%>.js',
+          'dist/<%= pkg.name %>-<%= pkg.version%>.min.js',
+          'dist/<%= pkg.name %>-<%= pkg.version%>.css',
+          'dist/<%= pkg.name %>-<%= pkg.version%>.min.css',
+        ],
+        dest: 'dist/<%= pkg.name %>-<%= pkg.version%>.zip'
+      }
     }
   });
 
@@ -60,10 +78,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-zip');
 
   // Default task(s).
   grunt.registerTask('lint', ['jshint', 'csslint']);
   grunt.registerTask('build', ['clean', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('package', ['build', 'zip']);
   grunt.registerTask('default', ['clean', 'lint', 'build']);
 
 };
