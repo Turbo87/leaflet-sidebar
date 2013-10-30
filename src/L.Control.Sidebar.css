@@ -13,7 +13,7 @@
     z-index: 2000;
 }
 
-.leaflet-sidebar-visible {
+.leaflet-sidebar.visible {
     left: 0;
 }
 
@@ -47,7 +47,7 @@
         padding: 0;
     }
 
-    .leaflet-sidebar-visible {
+    .leaflet-sidebar.visible {
         left: 0;
     }
 
@@ -57,7 +57,7 @@
         border-radius: 0;
     }
 
-    .leaflet-sidebar-visible ~ .leaflet-left {
+    .leaflet-sidebar.visible ~ .leaflet-left {
         left: 100%;
     }
 }
@@ -67,7 +67,7 @@
         width: 305px;
     }
 
-    .leaflet-sidebar-visible ~ .leaflet-left {
+    .leaflet-sidebar.visible ~ .leaflet-left {
         left: 305px;
     }
 }
@@ -77,7 +77,7 @@
         width: 390px;
     }
 
-    .leaflet-sidebar-visible ~ .leaflet-left {
+    .leaflet-sidebar.visible ~ .leaflet-left {
         left: 390px;
     }
 }
@@ -87,7 +87,7 @@
         width: 460px;
     }
 
-    .leaflet-sidebar-visible ~ .leaflet-left {
+    .leaflet-sidebar.visible ~ .leaflet-left {
         left: 460px;
     }
 }

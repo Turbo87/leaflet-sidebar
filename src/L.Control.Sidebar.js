@@ -64,8 +64,8 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     show: function () {
-        if (!L.DomUtil.hasClass(this._container, 'leaflet-sidebar-visible')) {
-            L.DomUtil.addClass(this._container, 'leaflet-sidebar-visible')
+        if (!L.DomUtil.hasClass(this._container, 'visible')) {
+            L.DomUtil.addClass(this._container, 'visible')
             this._map.panBy([-this._container.offsetWidth/2, 0], {
                 duration: 0.5
             });
@@ -73,8 +73,8 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     hide: function () {
-        if (L.DomUtil.hasClass(this._container, 'leaflet-sidebar-visible')) {
-            L.DomUtil.removeClass(this._container, 'leaflet-sidebar-visible')
+        if (L.DomUtil.hasClass(this._container, 'visible')) {
+            L.DomUtil.removeClass(this._container, 'visible')
             this._map.panBy([this._container.offsetWidth/2, 0], {
                 duration: 0.5
             });
