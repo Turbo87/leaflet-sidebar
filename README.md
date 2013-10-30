@@ -12,7 +12,7 @@ A responsive sidebar plugin for for [Leaflet](http://leafletjs.com/), a JS libra
 Examples are available in the `examples` folder and on Github Pages:
 
 * [Basic example](http://turbo87.github.io/leaflet-sidebar/examples/)
-* [mapbox.js listing-marker example](http://turbo87.github.io/leaflet-sidebar/examples/listing-marker.html)
+* [mapbox.js listing-markers example](http://turbo87.github.io/leaflet-sidebar/examples/listing-markers.html)
 * [Example with 2 sidebars](http://turbo87.github.io/leaflet-sidebar/examples/two-sidebars.html)
 
 
