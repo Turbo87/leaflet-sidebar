@@ -5,6 +5,15 @@ A responsive sidebar plugin for for [Leaflet](http://leafletjs.com/), a JS libra
 *leaflet-sidebar was developed to work with Leaflet 0.6.4. I don't know whether it works with older versions.*
 
 
+## Examples
+
+Examples are available in the `examples` folder and on Github Pages:
+
+* [Basic example](http://turbo87.github.io/leaflet-sidebar/examples/)
+* [mapbox.js listing-marker example](http://turbo87.github.io/leaflet-sidebar/examples/listing-marker.html)
+* [Example with 2 sidebars](http://turbo87.github.io/leaflet-sidebar/examples/two-sidebars.html)
+
+
 ## Using the plugin
 
 See the included examples for usage.
