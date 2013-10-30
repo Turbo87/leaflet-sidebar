@@ -69,7 +69,7 @@
         }, 500);
 
         var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
-            sidebar.show();
+            sidebar.toggle();
         });
 
         map.on('click', function () {

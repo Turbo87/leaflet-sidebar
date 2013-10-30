@@ -33,8 +33,14 @@ map.addControl(sidebar);
 The sidebar will be hidden on startup, use the following methods to show or hide it:
 
 ~~~~javascript
+// Show sidebar
 sidebar.show();
+
+// Hide sidebar
 sidebar.hide();
+
+// Toggle sidebar visibility
+sidebar.toggle();
 ~~~~
 
 If you want the sidebar to be visible on startup use the following snippet after adding it to the map:

@@ -78,6 +78,14 @@ L.Control.Sidebar = L.Control.extend({
         }
     },
 
+    toggle: function () {
+        if (L.DomUtil.hasClass(this._container, 'visible')) {
+            this.hide();
+        } else {
+            this.show();
+        }
+    },
+
     getOffset: function () {
         if (this.options.position === 'right') {
             return -this._container.offsetWidth;
