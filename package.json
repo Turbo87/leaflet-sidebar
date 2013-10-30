@@ -1,0 +1,22 @@
+{
+  "name": "leaflet-sidebar",
+  "version": "0.1.0",
+  "description": "A responsive sidebar plugin for for Leaflet",
+  "keywords": [
+      "gis",
+      "leaflet",
+      "map"
+  ],
+  "homepage": "https://github.com/turbo87/leaflet-sidebar",
+  "bugs": "https://github.com/turbo87/leaflet-sidebar/issues",
+  "license": "MIT",
+  "author": "Tobias Bieniek <tobias.bieniek@gmx.de>",
+  "main": "src/L.Control.Sidebar.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turbo87/leaflet-sidebar.git"
+  },
+  "dependencies": {
+    "leaflet": "0.6.x"
+  }
+}
