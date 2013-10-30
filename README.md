@@ -41,6 +41,9 @@ sidebar.hide();
 
 // Toggle sidebar visibility
 sidebar.toggle();
+
+// Check sidebar visibility
+var visible = sidebar.isVisible();
 ~~~~
 
 If you want the sidebar to be visible on startup use the following snippet after adding it to the map:
