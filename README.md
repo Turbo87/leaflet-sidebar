@@ -95,6 +95,22 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 - Windows XP: Internet Explorer 6 (failed!)
 
 
+## Changelog
+
+### v0.1.0 (2013-10-30)
+
+- First official release
+- `position` option
+- `closeButton` option
+- `getContainer()` and `setContent()` methods
+- two more examples
+
+
+### v0.0.0 (2013-10-29)
+
+- Preview release
+
+
 ## License
 
 leaflet-sidebar is free software, and may be redistributed under the MIT license.
