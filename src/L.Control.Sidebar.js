@@ -1,5 +1,6 @@
 L.Control.Sidebar = L.Control.extend({
     options: {
+        position: 'left'
     },
 
     initialize: function (placeholder, options) {
@@ -39,7 +40,7 @@ L.Control.Sidebar = L.Control.extend({
 
         // Create sidebar container
         var container = this._container =
-            L.DomUtil.create('div', l + 'sidebar');
+            L.DomUtil.create('div', l + 'sidebar ' + this.options.position);
 
         // Style and attach content container
         var content = this._contentContainer;
@@ -66,7 +67,7 @@ L.Control.Sidebar = L.Control.extend({
     show: function () {
         if (!L.DomUtil.hasClass(this._container, 'visible')) {
             L.DomUtil.addClass(this._container, 'visible')
-            this._map.panBy([-this._container.offsetWidth/2, 0], {
+            this._map.panBy([-this.getOffset() / 2, 0], {
                 duration: 0.5
             });
         }
@@ -75,9 +76,17 @@ L.Control.Sidebar = L.Control.extend({
     hide: function () {
         if (L.DomUtil.hasClass(this._container, 'visible')) {
             L.DomUtil.removeClass(this._container, 'visible')
-            this._map.panBy([this._container.offsetWidth/2, 0], {
+            this._map.panBy([this.getOffset() / 2, 0], {
                 duration: 0.5
             });
+        }
+    },
+
+    getOffset: function () {
+        if (this.options.position === 'right') {
+            return -this._container.offsetWidth;
+        } else {
+            return this._container.offsetWidth;
         }
     }
 });
