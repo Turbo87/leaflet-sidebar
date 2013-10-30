@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "A responsive sidebar plugin for for Leaflet",
   "keywords": [
-      "gis",
-      "leaflet",
-      "map"
+    "gis",
+    "leaflet",
+    "map"
   ],
   "homepage": "https://github.com/turbo87/leaflet-sidebar",
   "bugs": "https://github.com/turbo87/leaflet-sidebar/issues",
@@ -23,6 +23,7 @@
     "grunt": "0.4.x",
     "grunt-contrib-clean": "0.5.x",
     "grunt-contrib-jshint": "0.7.x",
+    "grunt-contrib-csslint": "0.1.x",
     "grunt-contrib-concat": "0.3.x",
     "grunt-contrib-uglify": "0.2.x",
     "grunt-contrib-cssmin": "0.6.x"

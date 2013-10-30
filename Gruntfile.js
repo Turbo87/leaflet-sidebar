@@ -14,6 +14,14 @@ module.exports = function(grunt) {
       // define the files to lint
       files: ['src/**/*.js']
     },
+    csslint: {
+      options: {
+        'adjoining-classes': false,
+        'box-sizing': false
+      },
+      // define the files to lint
+      files: ['src/**/*.css']
+    },
     concat: {
       js: {
         src: ['src/**/*.js'],
@@ -47,12 +55,13 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'jshint', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concat', 'uglify', 'cssmin']);
 
 };
