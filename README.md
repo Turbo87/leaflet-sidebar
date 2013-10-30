@@ -64,12 +64,25 @@ sidebar.setContent('test <b>test</b> test');
 
 If you need more flexibility you can use `sidebar.getContainer()` to get the content container element or use e.g. jQuery on the `<div id="sidebar">` element.
 
+
 ### Options
 
 The sidebar can be configured with these options:
 
 - **position**: Can be `left` (default) or `right` and shouldn't need explaining.
 - **closeButton*: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
+
+
+## Compatibility
+
+The leaflet-sidebar plugin has been tested on the following systems and browsers:
+
+- Ubuntu: Firefox, Chrome
+- Mac OS X: Firefox, Chrome, Safari
+- Android 4.3: Firefox, Chrome, Opera
+- iOS: Safari
+- Windows XP: Internet Explorer 6 (failed!)
+
 
 ## License
 
