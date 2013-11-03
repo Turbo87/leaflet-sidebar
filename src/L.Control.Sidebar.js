@@ -25,6 +25,7 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     addTo: function (map) {
+        var sidebar = this;
         var l = 'leaflet-';
 
         // Create sidebar container
@@ -40,6 +41,11 @@ L.Control.Sidebar = L.Control.extend({
         if (this.options.closeButton) {
             var close = L.DomUtil.create('a', 'close', container);
             close.innerHTML = '&times;';
+
+            L.DomEvent.on(close, 'click', function () {
+                sidebar.hide();
+                L.DomEvent.stopPropagation();
+            });
         }
 
         // Attach sidebar container to controls container

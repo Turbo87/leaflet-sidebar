@@ -97,6 +97,11 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 
 ## Changelog
 
+### v0.1.1 (2013-11-03)
+
+- Fixed close button event handler (#1)
+
+
 ### v0.1.0 (2013-10-30)
 
 - First official release
