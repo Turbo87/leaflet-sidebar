@@ -42,9 +42,9 @@ L.Control.Sidebar = L.Control.extend({
             var close = L.DomUtil.create('a', 'close', container);
             close.innerHTML = '&times;';
 
-            L.DomEvent.on(close, 'click', function () {
+            L.DomEvent.on(close, 'click', function (e) {
                 sidebar.hide();
-                L.DomEvent.stopPropagation();
+                L.DomEvent.stopPropagation(e);
             });
         }
 
