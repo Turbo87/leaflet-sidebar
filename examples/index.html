@@ -82,6 +82,14 @@
         map.on('click', function () {
             sidebar.hide();
         })
+
+        sidebar.on('show', function () {
+            console.log('Sidebar visible.');
+        });
+
+        sidebar.on('hide', function () {
+            console.log('Sidebar hidden.');
+        });
     </script>
 </body>
 </html>
