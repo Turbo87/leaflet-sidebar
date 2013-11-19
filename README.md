@@ -2,8 +2,6 @@
 
 A responsive sidebar plugin for for [Leaflet](http://leafletjs.com/), a JS library for interactive maps.
 
-*leaflet-sidebar was developed to work with Leaflet 0.6.4. I don't know whether it works with older versions.*
-
 
 ## Examples
 
@@ -85,6 +83,9 @@ The sidebar can be configured with these options:
 
 
 ## Compatibility
+
+leaflet-sidebar was developed to work with Leaflet 0.6.4 and should work fine
+with v0.7 too. I have no information whether it works well with older versions.
 
 The leaflet-sidebar plugin has been tested on the following systems and browsers:
 
