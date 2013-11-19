@@ -45,6 +45,7 @@ L.Control.Sidebar = L.Control.extend({
             L.DomEvent.on(close, 'click', function (e) {
                 sidebar.hide();
                 L.DomEvent.stopPropagation(e);
+                map.fire('sidebar-closed');
             });
         }
 
