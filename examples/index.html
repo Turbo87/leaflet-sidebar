@@ -90,6 +90,10 @@
         sidebar.on('hide', function () {
             console.log('Sidebar hidden.');
         });
+
+        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
+            console.log('Close button clicked.');
+        });
     </script>
 </body>
 </html>
