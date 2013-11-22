@@ -82,6 +82,18 @@
         map.on('click', function () {
             sidebar.hide();
         })
+
+        sidebar.on('show', function () {
+            console.log('Sidebar visible.');
+        });
+
+        sidebar.on('hide', function () {
+            console.log('Sidebar hidden.');
+        });
+
+        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
+            console.log('Close button clicked.');
+        });
     </script>
 </body>
 </html>

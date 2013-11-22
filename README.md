@@ -82,6 +82,17 @@ The sidebar can be configured with these options:
 - **closeButton**: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
 
 
+### Events
+
+Whenever the visibility of the sidebar is changed, an event is fired on the sidebar instance. You can listen for these events like this:
+
+~~~~javascript
+sidebar.on('hide', function () {
+    console.log('Sidebar is now hidden.');
+});
+~~~~
+
+
 ## Compatibility
 
 leaflet-sidebar was developed to work with Leaflet 0.6.4 and should work fine
@@ -101,6 +112,8 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 ### v0.1.2 (not yet released)
 
 - Fixed broken `stopPropagation()` call (#2)
+- Fire `show` and `hide` events on sidebar instances
+- Added `getCloseButton()` method
 
 
 ### v0.1.1 (2013-11-03)

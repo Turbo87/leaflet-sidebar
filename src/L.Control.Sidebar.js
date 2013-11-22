@@ -1,4 +1,7 @@
 L.Control.Sidebar = L.Control.extend({
+
+    includes: L.Mixin.Events,
+
     options: {
         closeButton: true,
         position: 'left'
@@ -39,7 +42,8 @@ L.Control.Sidebar = L.Control.extend({
 
         // Create close button and attach it if configured
         if (this.options.closeButton) {
-            var close = L.DomUtil.create('a', 'close', container);
+            var close = this._closeButton =
+                L.DomUtil.create('a', 'close', container);
             close.innerHTML = '&times;';
 
             L.DomEvent.on(close, 'click', function (e) {
@@ -75,6 +79,7 @@ L.Control.Sidebar = L.Control.extend({
             this._map.panBy([-this.getOffset() / 2, 0], {
                 duration: 0.5
             });
+            this.fire('show');
         }
     },
 
@@ -84,6 +89,7 @@ L.Control.Sidebar = L.Control.extend({
             this._map.panBy([this.getOffset() / 2, 0], {
                 duration: 0.5
             });
+            this.fire('hide');
         }
     },
 
@@ -97,6 +103,10 @@ L.Control.Sidebar = L.Control.extend({
 
     getContainer: function () {
         return this._contentContainer;
+    },
+
+    getCloseButton: function () {
+        return this._closeButton;
     },
 
     setContent: function (content) {
