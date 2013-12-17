@@ -29,19 +29,13 @@ L.Control.Sidebar = L.Control.extend({
 
         // Create close button and attach it if configured
         if (this.options.closeButton) {
-	    var sidebar = this;
+            var sidebar = this;
 
             var close = this._closeButton =
                 L.DomUtil.create('a', 'close', container);
             close.innerHTML = '&times;';
-
-            this._close = function (e) {
-                sidebar.hide();
-                L.DomEvent.stopPropagation(e);
-            };
         }
     },
-
     addTo: function (map) {
         var sidebar = this;
         var container = this._container;
@@ -51,7 +45,7 @@ L.Control.Sidebar = L.Control.extend({
         if (this.options.closeButton) {
             var close = this._closeButton;
 
-            L.DomEvent.on(close, 'click', this._close);
+            L.DomEvent.on(close, 'click', this.hide, this);
         }
 
         // Attach sidebar container to controls container
@@ -99,7 +93,7 @@ L.Control.Sidebar = L.Control.extend({
         if (this._closeButton && this._close) {
             var close = this._closeButton;
 
-            L.DomEvent.off(close, 'click', this._close);
+            L.DomEvent.off(close, 'click', this.hide, this);
         }
 
         return this;
@@ -119,13 +113,16 @@ L.Control.Sidebar = L.Control.extend({
         }
     },
 
-    hide: function () {
+    hide: function (e) {
         if (this.isVisible()) {
             L.DomUtil.removeClass(this._container, 'visible');
             this._map.panBy([this.getOffset() / 2, 0], {
                 duration: 0.5
             });
             this.fire('hide');
+        }
+        if(e) {
+            L.DomEvent.stopPropagation(e);
         }
     },
 
