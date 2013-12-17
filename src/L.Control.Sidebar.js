@@ -16,19 +16,6 @@ L.Control.Sidebar = L.Control.extend({
         // Remove the content container from its original parent
         content.parentNode.removeChild(content);
 
-        // Make sure we don't drag the map when we interact with the content
-        var stop = L.DomEvent.stopPropagation;
-        L.DomEvent
-            .on(content, 'click', stop)
-            .on(content, 'mousedown', stop)
-            .on(content, 'touchstart', stop)
-            .on(content, 'dblclick', stop)
-            .on(content, 'mousewheel', stop)
-            .on(content, 'MozMousePixelScroll', stop);
-    },
-
-    addTo: function (map) {
-        var sidebar = this;
         var l = 'leaflet-';
 
         // Create sidebar container
@@ -46,10 +33,23 @@ L.Control.Sidebar = L.Control.extend({
                 L.DomUtil.create('a', 'close', container);
             close.innerHTML = '&times;';
 
-            L.DomEvent.on(close, 'click', function (e) {
+            this._close = function (e) {
                 sidebar.hide();
                 L.DomEvent.stopPropagation(e);
-            });
+            };
+        }
+    },
+
+    addTo: function (map) {
+        var sidebar = this;
+        var container = this._container;
+        var content = this._contentContainer;
+
+        // Attach event to close button
+        if (this.options.closeButton) {
+            var close = this._closeButton;
+
+            L.DomEvent.on(close, 'click', this._close);
         }
 
         // Attach sidebar container to controls container
@@ -58,13 +58,47 @@ L.Control.Sidebar = L.Control.extend({
 
         this._map = map;
 
+        // Make sure we don't drag the map when we interact with the content
+        var stop = L.DomEvent.stopPropagation;
+        L.DomEvent
+            .on(content, 'click', stop)
+            .on(content, 'mousedown', stop)
+            .on(content, 'touchstart', stop)
+            .on(content, 'dblclick', stop)
+            .on(content, 'mousewheel', stop)
+            .on(content, 'MozMousePixelScroll', stop);
+
         return this;
     },
 
     removeFrom: function (map) {
+        //if the control is visible, hide it before removing it.
+        this.hide();
+
+        var content = this._contentContainer;
+
         // Remove sidebar container from controls container
         var controlContainer = map._controlContainer;
         controlContainer.removeChild(this._container);
+
+        //disassociate the map object
+        this._map = null;
+
+        // Unregister events to prevent memory leak
+        var stop = L.DomEvent.stopPropagation;
+        L.DomEvent
+            .off(content, 'click', stop)
+            .off(content, 'mousedown', stop)
+            .off(content, 'touchstart', stop)
+            .off(content, 'dblclick', stop)
+            .off(content, 'mousewheel', stop)
+            .off(content, 'MozMousePixelScroll', stop);
+
+        if (this._closeButton && this._close) {
+            var close = this._closeButton;
+
+            L.DomEvent.off(close, 'click', this._close);
+        }
 
         return this;
     },
