@@ -29,15 +29,12 @@ L.Control.Sidebar = L.Control.extend({
 
         // Create close button and attach it if configured
         if (this.options.closeButton) {
-            var sidebar = this;
-
             var close = this._closeButton =
                 L.DomUtil.create('a', 'close', container);
             close.innerHTML = '&times;';
         }
     },
     addTo: function (map) {
-        var sidebar = this;
         var container = this._container;
         var content = this._contentContainer;
 
