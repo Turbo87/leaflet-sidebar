@@ -109,7 +109,7 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 
 ## Changelog
 
-### v0.1.2 (not yet released)
+### v0.1.2 (2013-12-28)
 
 - Fixed broken `stopPropagation()` call (#2)
 - Fire `show` and `hide` events on sidebar instances
