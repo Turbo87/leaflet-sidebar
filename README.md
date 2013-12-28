@@ -114,6 +114,8 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 - Fixed broken `stopPropagation()` call (#2)
 - Fire `show` and `hide` events on sidebar instances
 - Added `getCloseButton()` method
+- Several memory leaks related to event handlers fixed (#7)
+  Thanks to Jerroyd Moore!
 
 
 ### v0.1.1 (2013-11-03)
