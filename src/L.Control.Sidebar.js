@@ -23,7 +23,6 @@ L.Control.Sidebar = L.Control.extend({
             L.DomUtil.create('div', l + 'sidebar ' + this.options.position);
 
         // Style and attach content container
-        var content = this._contentContainer;
         L.DomUtil.addClass(content, l + 'control');
         container.appendChild(content);
 
