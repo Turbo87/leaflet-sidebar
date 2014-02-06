@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.1.3 (not yet released)
+## v0.1.3 (2014-02-06)
 
 - Added `autoPan` option
 
