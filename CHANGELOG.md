@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.3 (not yet released)
+
+- Added `autoPan` option
+
+
 ## v0.1.2 (2013-12-28)
 
 - Fixed broken `stopPropagation()` call (#2)
