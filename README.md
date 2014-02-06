@@ -80,6 +80,7 @@ The sidebar can be configured with these options:
 
 - **position**: Can be `left` (default) or `right` and shouldn't need explaining.
 - **closeButton**: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
+- **autoPan**: Can be `true` (default) or `false`. If `true` the map will be shifted when the sidebar is shown.
 
 
 ### Events
