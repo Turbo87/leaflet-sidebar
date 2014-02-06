@@ -5,7 +5,7 @@ L.Control.Sidebar = L.Control.extend({
     options: {
         closeButton: true,
         position: 'left',
-        autoPan: true
+        autoPan: true,
     },
 
     initialize: function (placeholder, options) {
@@ -103,7 +103,7 @@ L.Control.Sidebar = L.Control.extend({
     show: function () {
         if (!this.isVisible()) {
             L.DomUtil.addClass(this._container, 'visible');
-            if(this.options.autoPan) {
+            if (this.options.autoPan) {
                 this._map.panBy([-this.getOffset() / 2, 0], {
                     duration: 0.5
                 });
@@ -115,7 +115,7 @@ L.Control.Sidebar = L.Control.extend({
     hide: function (e) {
         if (this.isVisible()) {
             L.DomUtil.removeClass(this._container, 'visible');
-            if(this.options.autoPan) {
+            if (this.options.autoPan) {
                 this._map.panBy([this.getOffset() / 2, 0], {
                     duration: 0.5
                 });
