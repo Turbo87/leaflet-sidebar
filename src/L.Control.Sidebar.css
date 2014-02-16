@@ -101,6 +101,10 @@
     .leaflet-sidebar.right.visible ~ .leaflet-right {
         right: 100%;
     }
+
+    .leaflet-touch .leaflet-sidebar > .leaflet-control {
+        border: 0;
+    }
 }
 
 @media(min-width:768px) and (max-width:991px){
