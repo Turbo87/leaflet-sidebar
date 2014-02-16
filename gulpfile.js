@@ -15,12 +15,16 @@ var banner = '/*! {{ pkg.name }} v{{ pkg.version }} */';
 
 
 // Lint JS + CSS
-gulp.task('lint', function() {
-  gulp.src('./src/*.js')
+gulp.task('lint', ['lint:js', 'lint:css']);
+
+gulp.task('lint:js', function() {
+  return gulp.src('./src/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter());
+});
 
-  gulp.src('./src/*.css')
+gulp.task('lint:css', function() {
+  return gulp.src('./src/*.css')
     .pipe(csslint({
       'adjoining-classes': false,
       'box-sizing': false,
@@ -30,25 +34,33 @@ gulp.task('lint', function() {
 });
 
 // Concat JS + CSS
-gulp.task('concat', function() {
-    gulp.src('./src/*.js')
+gulp.task('concat', ['concat:js', 'concat:css']);
+
+gulp.task('concat:js', function() {
+    return gulp.src('./src/*.js')
         .pipe(concat(basename +'.js'))
         .pipe(gulp.dest('./dist'));
+});
 
-    gulp.src('./src/*.css')
+gulp.task('concat:css', function() {
+    return gulp.src('./src/*.css')
         .pipe(concat(basename +'.css'))
         .pipe(gulp.dest('./dist'));
 });
 
 // Minify JS + CSS
-gulp.task('minify', ['concat'], function() {
-    gulp.src('./dist/' + basename + '.js')
+gulp.task('minify', ['minify:js', 'minify:css']);
+
+gulp.task('minify:js', ['concat:js'], function() {
+    return gulp.src('./dist/' + basename + '.js')
         .pipe(rename(basename + '.min.js'))
         .pipe(uglify())
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./dist'));
+});
 
-    gulp.src('./dist/' + basename + '.css')
+gulp.task('minify:css', ['concat:css'], function() {
+    return gulp.src('./dist/' + basename + '.css')
         .pipe(rename(basename + '.min.css'))
         .pipe(minifyCSS())
         .pipe(header(banner, { pkg : pkg } ))
@@ -57,7 +69,7 @@ gulp.task('minify', ['concat'], function() {
 
 // Package for distribution
 gulp.task('zip', ['minify'], function() {
-    gulp.src([
+    return gulp.src([
       'README.md',
       'LICENSE',
       'dist/' + basename + '.js',
@@ -74,7 +86,7 @@ gulp.task('zip', ['minify'], function() {
 
 // Cleanup
 gulp.task('clean', function() {
-  gulp.src('./dist', {read: false})
+  return gulp.src('./dist', {read: false})
     .pipe(clean());
 });
 
