@@ -77,12 +77,15 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+// Watch JS + CSS Files
+gulp.task('watch', function(){
+  gulp.run('lint');
+  gulp.watch(['./src/*.js', './src/*.css'], function(event){
+    gulp.run('lint');
+  });
+});
+
 // Default
 gulp.task('default', function(){
   gulp.run('lint', 'minify');
-
-  // Watch JS Files
-  gulp.watch(['./src/*.js', './src/*.css'], function(event){
-    gulp.run('lint', 'minify');
-  });
 });
