@@ -28,19 +28,26 @@ gulp.task('lint', function() {
     .pipe(csslint.reporter());
 });
 
-// Concat & Minify JS + CSS
-gulp.task('minify', function(){
+// Concat JS + CSS
+gulp.task('concat', function() {
     gulp.src('./src/*.js')
         .pipe(concat(basename +'.js'))
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./dist'));
+
+    gulp.src('./src/*.css')
+        .pipe(concat(basename +'.css'))
+        .pipe(gulp.dest('./dist'));
+});
+
+// Minify JS + CSS
+gulp.task('minify', ['concat'], function() {
+    gulp.src('./src/' + basename + '.js')
         .pipe(rename(basename + '.min.js'))
         .pipe(uglify())
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./dist'));
 
-    gulp.src('./src/*.css')
-        .pipe(concat(basename +'.css'))
-        .pipe(gulp.dest('./dist'))
+    gulp.src('./src/' + basename + '.css')
         .pipe(rename(basename + '.min.css'))
         .pipe(minifyCSS())
         .pipe(header(banner, { pkg : pkg } ))
@@ -48,7 +55,7 @@ gulp.task('minify', function(){
 });
 
 // Package for distribution
-gulp.task('zip', ['minify'], function(){
+gulp.task('zip', ['minify'], function() {
     gulp.src([
       'README.md',
       'LICENSE',
