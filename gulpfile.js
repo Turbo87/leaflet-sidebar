@@ -42,13 +42,13 @@ gulp.task('concat', function() {
 
 // Minify JS + CSS
 gulp.task('minify', ['concat'], function() {
-    gulp.src('./src/' + basename + '.js')
+    gulp.src('./dist/' + basename + '.js')
         .pipe(rename(basename + '.min.js'))
         .pipe(uglify())
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./dist'));
 
-    gulp.src('./src/' + basename + '.css')
+    gulp.src('./dist/' + basename + '.css')
         .pipe(rename(basename + '.min.css'))
         .pipe(minifyCSS())
         .pipe(header(banner, { pkg : pkg } ))
