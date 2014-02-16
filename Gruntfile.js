@@ -19,7 +19,8 @@ module.exports = function(grunt) {
     csslint: {
       options: {
         'adjoining-classes': false,
-        'box-sizing': false
+        'box-sizing': false,
+        'fallback-colors': false
       },
       // define the files to lint
       files: ['src/**/*.css']
