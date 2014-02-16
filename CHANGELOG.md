@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.4 (2014-02-16)
+
+- Adjusted CSS for touch devices (#12)
+- Converted build system to [gulp.js](http://gulpjs.com/)
+- Added [TravisCI](http://travis-ci.org/) support for CI linting
+
+
 ## v0.1.3 (2014-02-06)
 
 - Added `autoPan` option
