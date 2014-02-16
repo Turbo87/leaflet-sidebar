@@ -37,51 +37,51 @@ gulp.task('lint:css', function() {
 gulp.task('concat', ['concat:js', 'concat:css']);
 
 gulp.task('concat:js', function() {
-    return gulp.src('./src/*.js')
-        .pipe(concat(basename +'.js'))
-        .pipe(gulp.dest('./dist'));
+  return gulp.src('./src/*.js')
+    .pipe(concat(basename +'.js'))
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('concat:css', function() {
-    return gulp.src('./src/*.css')
-        .pipe(concat(basename +'.css'))
-        .pipe(gulp.dest('./dist'));
+  return gulp.src('./src/*.css')
+    .pipe(concat(basename +'.css'))
+    .pipe(gulp.dest('./dist'));
 });
 
 // Minify JS + CSS
 gulp.task('minify', ['minify:js', 'minify:css']);
 
 gulp.task('minify:js', ['concat:js'], function() {
-    return gulp.src('./dist/' + basename + '.js')
-        .pipe(rename(basename + '.min.js'))
-        .pipe(uglify())
-        .pipe(header(banner, { pkg : pkg } ))
-        .pipe(gulp.dest('./dist'));
+  return gulp.src('./dist/' + basename + '.js')
+    .pipe(rename(basename + '.min.js'))
+    .pipe(uglify())
+    .pipe(header(banner, { pkg : pkg } ))
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('minify:css', ['concat:css'], function() {
-    return gulp.src('./dist/' + basename + '.css')
-        .pipe(rename(basename + '.min.css'))
-        .pipe(minifyCSS())
-        .pipe(header(banner, { pkg : pkg } ))
-        .pipe(gulp.dest('./dist'));
+  return gulp.src('./dist/' + basename + '.css')
+    .pipe(rename(basename + '.min.css'))
+    .pipe(minifyCSS())
+    .pipe(header(banner, { pkg : pkg } ))
+    .pipe(gulp.dest('./dist'));
 });
 
 // Package for distribution
 gulp.task('zip', ['minify'], function() {
-    return gulp.src([
-      'README.md',
-      'LICENSE',
-      'dist/' + basename + '.js',
-      'dist/' + basename + '.min.js',
-      'dist/' + basename + '.css',
-      'dist/' + basename + '.min.css',
-    ])
-    .pipe(rename(function (dir, base, ext) {
-        return (dir == 'dist' ? '../' : '') + base + ext;
-    }))
-    .pipe(zip(basename + '.zip'))
-    .pipe(gulp.dest('dist'));
+  return gulp.src([
+    'README.md',
+    'LICENSE',
+    'dist/' + basename + '.js',
+    'dist/' + basename + '.min.js',
+    'dist/' + basename + '.css',
+    'dist/' + basename + '.min.css',
+  ])
+  .pipe(rename(function (dir, base, ext) {
+    return (dir == 'dist' ? '../' : '') + base + ext;
+  }))
+  .pipe(zip(basename + '.zip'))
+  .pipe(gulp.dest('dist'));
 });
 
 // Cleanup
