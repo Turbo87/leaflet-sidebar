@@ -23,7 +23,8 @@ gulp.task('lint', function() {
   gulp.src('./src/*.css')
     .pipe(csslint({
       'adjoining-classes': false,
-      'box-sizing': false
+      'box-sizing': false,
+      'fallback-colors': false
     }))
     .pipe(csslint.reporter());
 });
