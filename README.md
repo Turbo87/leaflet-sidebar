@@ -1,6 +1,6 @@
 # leaflet-sidebar
 
-A responsive sidebar plugin for for [Leaflet](http://leafletjs.com/), a JS library for interactive maps.
+A responsive sidebar plugin for [Leaflet](http://leafletjs.com/), a JS library for interactive maps.
 
 
 ## Examples
