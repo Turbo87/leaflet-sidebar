@@ -1,0 +1,14 @@
+{
+  "name": "leaflet-sidebar",
+  "version": "0.1.4",
+  "repo": "Turbo87/leaflet-sidebar",
+  "description": "A responsive sidebar plugin for for Leaflet",
+  "keywords": [
+    "gis",
+    "leaflet",
+    "leaflet-plugin",
+    "map"
+  ],
+  "scripts": ["src/L.Control.Sidebar.js"],
+  "styles": ["src/L.Control.Sidebar.css"]
+}
