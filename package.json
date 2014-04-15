@@ -23,7 +23,7 @@
     "leaflet": "0.6.x"
   },
   "devDependencies": {
-    "gulp": "~3.3.0",
+    "gulp": "~3.6.0",
     "gulp-clean": "~0.2.2",
     "gulp-concat": "~2.1.7",
     "gulp-csslint": "~0.1.3",
