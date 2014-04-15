@@ -34,6 +34,7 @@ L.Control.Sidebar = L.Control.extend({
             close.innerHTML = '&times;';
         }
     },
+
     addTo: function (map) {
         var container = this._container;
         var content = this._contentContainer;
