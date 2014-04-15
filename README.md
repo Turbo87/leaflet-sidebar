@@ -88,10 +88,19 @@ The sidebar can be configured with these options:
 Whenever the visibility of the sidebar is changed, an event is fired on the sidebar instance. You can listen for these events like this:
 
 ~~~~javascript
-sidebar.on('hide', function () {
+sidebar.on('hidden', function () {
     console.log('Sidebar is now hidden.');
 });
 ~~~~
+
+Available events:
+
+- **show**: Show animation is starting, sidebar will be visible.
+- **shown**: Show animation finished, sidebar is now visible.
+- **hide**: Hide animation is starting, sidebar will be hidden.
+- **hidden**: Hide animation finished, sidebar is now hidden.
+
+Note that the `shown` and `hidden` events depend on `transitionend`/`webkitTransitionEnd` which might not be supported by all browsers yet.
 
 
 ## Compatibility
