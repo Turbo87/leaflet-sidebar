@@ -30,7 +30,7 @@ gulp.task('lint:js', function() {
     .pipe(jshint.reporter());
 });
 
-gulp.task('lint:css', function() {
+gulp.task('lint:css', ['sass'], function() {
   return gulp.src('./src/*.css')
     .pipe(csslint({
       'adjoining-classes': false,
