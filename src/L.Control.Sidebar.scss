@@ -1,0 +1,157 @@
+$threshold-lg: 1200px;
+$threshold-md: 992px;
+$threshold-sm: 768px;
+
+$width-lg: 460px;
+$width-md: 390px;
+$width-sm: 305px;
+$width-xs: 100%;
+
+$transition-duration: 0.5s;
+
+@mixin border-radius($border-radius) {
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+
+@mixin box-sizing($box-sizing) {
+    -webkit-box-sizing: $box-sizing;
+    -moz-box-sizing: $box-sizing;
+    box-sizing: $box-sizing;
+}
+
+@mixin widths($width) {
+    width: $width;
+
+    &.left.visible ~ .leaflet-left {
+        left: $width;
+    }
+
+    &.right.visible ~ .leaflet-right {
+        right: $width;
+    }
+}
+
+.leaflet-sidebar {
+    position: absolute;
+    height: 100%;
+
+    @include box-sizing(border-box);
+    padding: 10px;
+
+    z-index: 2000;
+
+    &.left {
+        left: -500px;
+        transition: left $transition-duration, width $transition-duration;
+
+        padding-right: 0;
+
+        &.visible {
+            left: 0;
+        }
+    }
+
+    &.right {
+        right: -500px;
+        transition: right $transition-duration, width $transition-duration;
+
+        padding-left: 0;
+
+        &.visible {
+            right: 0;
+        }
+    }
+
+    & > .leaflet-control {
+        height: 100%;
+        width: 100%;
+
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+
+        @include box-sizing(border-box);
+        padding: 8px 24px;
+
+        font-size: 1.1em;
+
+        background: white;
+        box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+        @include border-radius(4px);
+
+        .leaflet-touch & {
+            box-shadow: none;
+            border: 2px solid rgba(0,0,0,0.2);
+            background-clip: padding-box;
+        }
+    }
+
+    @media(max-width:$threshold-sm - 1px) {
+        @include widths($width-xs);
+
+        padding: 0;
+
+        &.left {
+            left: -$width-xs;
+
+            &.visible {
+                left: 0;
+            }
+        }
+
+        &.right {
+            right: -$width-xs;
+
+            &.visible {
+                right: 0;
+            }
+        }
+
+        & > .leaflet-control {
+            box-shadow: none;
+            @include border-radius(0);
+
+            .leaflet-touch & {
+                border: 0;
+            }
+        }
+    }
+
+    @media(min-width:$threshold-sm) and (max-width:$threshold-md - 1px) {
+        @include widths($width-sm);
+    }
+
+    @media(min-width:$threshold-md) and (max-width:$threshold-lg - 1px) {
+        @include widths($width-md);
+    }
+
+    @media(min-width:$threshold-lg) {
+        @include widths($width-lg);
+    }
+
+    .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 31px;
+        height: 31px;
+
+        color: #333;
+        font-size: 25pt;
+        line-height: 1em;
+        text-align: center;
+        background: white;
+        @include border-radius(16px);
+        cursor: pointer;
+
+        z-index: 8;
+    }
+}
+
+.leaflet-left {
+    transition: left $transition-duration;
+}
+
+.leaflet-right {
+    transition: right $transition-duration;
+}
