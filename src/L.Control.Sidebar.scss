@@ -7,6 +7,8 @@ $width-md: 390px;
 $width-sm: 305px;
 $width-xs: 100%;
 
+$transition-duration: 0.5s;
+
 @mixin border-radius($border-radius) {
     -webkit-border-radius: $border-radius;
     border-radius: $border-radius;
@@ -41,7 +43,7 @@ $width-xs: 100%;
 
     &.left {
         left: -500px;
-        transition: left 0.5s, width 0.5s;
+        transition: left $transition-duration, width $transition-duration;
 
         padding-right: 0;
 
@@ -52,7 +54,7 @@ $width-xs: 100%;
 
     &.right {
         right: -500px;
-        transition: right 0.5s, width 0.5s;
+        transition: right $transition-duration, width $transition-duration;
 
         padding-left: 0;
 
@@ -147,9 +149,9 @@ $width-xs: 100%;
 }
 
 .leaflet-left {
-    transition: left 0.5s;
+    transition: left $transition-duration;
 }
 
 .leaflet-right {
-    transition: right 0.5s;
+    transition: right $transition-duration;
 }
