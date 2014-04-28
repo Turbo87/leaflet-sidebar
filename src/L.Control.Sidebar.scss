@@ -39,6 +39,32 @@ $width-xs: 100%;
             right: 0;
         }
     }
+
+    & > .leaflet-control {
+        height: 100%;
+        width: 100%;
+
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 8px 24px;
+
+        font-size: 1.1em;
+
+        background: white;
+        box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+
+        .leaflet-touch & {
+            box-shadow: none;
+            border: 2px solid rgba(0,0,0,0.2);
+            background-clip: padding-box;
+        }
+    }
 }
 
 .leaflet-left {
@@ -47,32 +73,6 @@ $width-xs: 100%;
 
 .leaflet-right {
     transition: right 0.5s;
-}
-
-.leaflet-sidebar > .leaflet-control {
-    height: 100%;
-    width: 100%;
-
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 8px 24px;
-
-    font-size: 1.1em;
-
-    background: white;
-    box-shadow: 0 1px 7px rgba(0,0,0,0.65);
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-}
-
-.leaflet-touch .leaflet-sidebar > .leaflet-control {
-    box-shadow: none;
-    border: 2px solid rgba(0,0,0,0.2);
-    background-clip: padding-box;
 }
 
 @media(max-width:$threshold-sm - 1px){
