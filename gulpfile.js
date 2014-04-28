@@ -5,6 +5,7 @@ var csslint = require('gulp-csslint');
 var header = require('gulp-header');
 var jshint = require('gulp-jshint');
 var minifyCSS = require('gulp-minify-css');
+var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var zip = require('gulp-zip');
@@ -13,6 +14,12 @@ var pkg = require('./package.json');
 var basename = pkg.name + '-' + pkg.version;
 var banner = '/*! {{ pkg.name }} v{{ pkg.version }} */';
 
+// SASS compilation
+gulp.task('sass', function () {
+    gulp.src('./src/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('./src'));
+});
 
 // Lint JS + CSS
 gulp.task('lint', ['lint:js', 'lint:css']);
@@ -42,7 +49,7 @@ gulp.task('concat:js', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('concat:css', function() {
+gulp.task('concat:css', ['sass'], function() {
   return gulp.src('./src/*.css')
     .pipe(concat(basename +'.css'))
     .pipe(gulp.dest('./dist'));
