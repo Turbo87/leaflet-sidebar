@@ -7,6 +7,12 @@ $width-md: 390px;
 $width-sm: 305px;
 $width-xs: 100%;
 
+@mixin box-sizing($box-sizing) {
+    -webkit-box-sizing: $box-sizing;
+    -moz-box-sizing: $box-sizing;
+    box-sizing: $box-sizing;
+}
+
 @mixin widths($width) {
     width: $width;
 
@@ -23,9 +29,7 @@ $width-xs: 100%;
     position: absolute;
     height: 100%;
 
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 10px;
 
     z-index: 2000;
@@ -59,9 +63,7 @@ $width-xs: 100%;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
 
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
         padding: 8px 24px;
 
         font-size: 1.1em;
