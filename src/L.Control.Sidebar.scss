@@ -1,3 +1,12 @@
+$threshold-lg: 1200px;
+$threshold-md: 992px;
+$threshold-sm: 768px;
+
+$width-lg: 460px;
+$width-md: 390px;
+$width-sm: 305px;
+$width-xs: 100%;
+
 .leaflet-sidebar {
     position: absolute;
     height: 100%;
@@ -66,9 +75,9 @@
     background-clip: padding-box;
 }
 
-@media(max-width:767px){
+@media(max-width:$threshold-sm - 1px){
     .leaflet-sidebar {
-        width: 100%;
+        width: $width-xs;
         padding: 0;
     }
 
@@ -95,11 +104,11 @@
     }
 
     .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 100%;
+        left: $width-xs;
     }
 
     .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 100%;
+        right: $width-xs;
     }
 
     .leaflet-touch .leaflet-sidebar > .leaflet-control {
@@ -107,45 +116,45 @@
     }
 }
 
-@media(min-width:768px) and (max-width:991px){
+@media(min-width:$threshold-sm) and (max-width:$threshold-md - 1px){
     .leaflet-sidebar {
-        width: 305px;
+        width: $width-sm;
     }
 
     .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 305px;
+        left: $width-sm;
     }
 
     .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 305px;
+        right: $width-sm;
     }
 }
 
-@media(min-width:992px) and (max-width:1199px){
+@media(min-width:$threshold-md) and (max-width:$threshold-lg - 1px){
     .leaflet-sidebar {
-        width: 390px;
+        width: $width-md;
     }
 
     .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 390px;
+        left: $width-md;
     }
 
     .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 390px;
+        right: $width-md;
     }
 }
 
-@media(min-width:1200px){
+@media(min-width:$threshold-lg){
     .leaflet-sidebar {
-        width: 460px;
+        width: $width-lg;
     }
 
     .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 460px;
+        left: $width-lg;
     }
 
     .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 460px;
+        right: $width-lg;
     }
 }
 
