@@ -17,28 +17,28 @@ $width-xs: 100%;
     padding: 10px;
 
     z-index: 2000;
-}
 
-.leaflet-sidebar.left {
-    left: -500px;
-    transition: left 0.5s, width 0.5s;
+    &.left {
+        left: -500px;
+        transition: left 0.5s, width 0.5s;
 
-    padding-right: 0;
-}
+        padding-right: 0;
 
-.leaflet-sidebar.right {
-    right: -500px;
-    transition: right 0.5s, width 0.5s;
+        &.visible {
+            left: 0;
+        }
+    }
 
-    padding-left: 0;
-}
+    &.right {
+        right: -500px;
+        transition: right 0.5s, width 0.5s;
 
-.leaflet-sidebar.left.visible {
-    left: 0;
-}
+        padding-left: 0;
 
-.leaflet-sidebar.right.visible {
-    right: 0;
+        &.visible {
+            right: 0;
+        }
+    }
 }
 
 .leaflet-left {
