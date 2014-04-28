@@ -40,18 +40,18 @@
     .leaflet-sidebar {
       width: 100%;
       padding: 0; }
+      .leaflet-sidebar.left.visible ~ .leaflet-left {
+        left: 100%; }
+      .leaflet-sidebar.right.visible ~ .leaflet-right {
+        right: 100%; }
       .leaflet-sidebar.left {
         left: -100%; }
         .leaflet-sidebar.left.visible {
           left: 0; }
-          .leaflet-sidebar.left.visible ~ .leaflet-left {
-            left: 100%; }
       .leaflet-sidebar.right {
         right: -100%; }
         .leaflet-sidebar.right.visible {
           right: 0; }
-          .leaflet-sidebar.right.visible ~ .leaflet-right {
-            right: 100%; }
       .leaflet-sidebar > .leaflet-control {
         box-shadow: none;
         -webkit-border-radius: 0;

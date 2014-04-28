@@ -7,6 +7,18 @@ $width-md: 390px;
 $width-sm: 305px;
 $width-xs: 100%;
 
+@mixin widths($width) {
+    width: $width;
+
+    &.left.visible ~ .leaflet-left {
+        left: $width;
+    }
+
+    &.right.visible ~ .leaflet-right {
+        right: $width;
+    }
+}
+
 .leaflet-sidebar {
     position: absolute;
     height: 100%;
@@ -67,30 +79,23 @@ $width-xs: 100%;
     }
 
     @media(max-width:$threshold-sm - 1px) {
-        width: $width-xs;
+        @include widths($width-xs);
+
         padding: 0;
 
         &.left {
-            left: -100%;
+            left: -$width-xs;
 
             &.visible {
                 left: 0;
-
-                & ~ .leaflet-left {
-                    left: $width-xs;
-                }
             }
         }
 
         &.right {
-            right: -100%;
+            right: -$width-xs;
 
             &.visible {
                 right: 0;
-
-                & ~ .leaflet-right {
-                    right: $width-xs;
-                }
             }
         }
 
@@ -106,39 +111,15 @@ $width-xs: 100%;
     }
 
     @media(min-width:$threshold-sm) and (max-width:$threshold-md - 1px) {
-        width: $width-sm;
-
-        &.left.visible ~ .leaflet-left {
-            left: $width-sm;
-        }
-
-        &.right.visible ~ .leaflet-right {
-            right: $width-sm;
-        }
+        @include widths($width-sm);
     }
 
     @media(min-width:$threshold-md) and (max-width:$threshold-lg - 1px) {
-        width: $width-md;
-
-        &.left.visible ~ .leaflet-left {
-            left: $width-md;
-        }
-
-        &.right.visible ~ .leaflet-right {
-            right: $width-md;
-        }
+        @include widths($width-md);
     }
 
     @media(min-width:$threshold-lg) {
-        width: $width-lg;
-
-        &.left.visible ~ .leaflet-left {
-            left: $width-lg;
-        }
-
-        &.right.visible ~ .leaflet-right {
-            right: $width-lg;
-        }
+        @include widths($width-lg);
     }
 
     .close {
