@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.7 (not yet released)
+
+- Catch context menu events on sidebar (#23)
+
+
 ## v0.1.6 (2014-08-23)
 
 - Added support for [bower.io](http://bower.io/search/) (#21)
