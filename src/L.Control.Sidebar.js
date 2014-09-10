@@ -88,6 +88,7 @@ L.Control.Sidebar = L.Control.extend({
         // Unregister events to prevent memory leak
         var stop = L.DomEvent.stopPropagation;
         L.DomEvent
+            .off(content, 'contextmenu', stop)
             .off(content, 'click', stop)
             .off(content, 'mousedown', stop)
             .off(content, 'touchstart', stop)
