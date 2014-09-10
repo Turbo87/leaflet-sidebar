@@ -61,6 +61,7 @@ L.Control.Sidebar = L.Control.extend({
         // Make sure we don't drag the map when we interact with the content
         var stop = L.DomEvent.stopPropagation;
         L.DomEvent
+            .on(content, 'contextmenu', stop)
             .on(content, 'click', stop)
             .on(content, 'mousedown', stop)
             .on(content, 'touchstart', stop)
@@ -87,6 +88,7 @@ L.Control.Sidebar = L.Control.extend({
         // Unregister events to prevent memory leak
         var stop = L.DomEvent.stopPropagation;
         L.DomEvent
+            .off(content, 'contextmenu', stop)
             .off(content, 'click', stop)
             .off(content, 'mousedown', stop)
             .off(content, 'touchstart', stop)
