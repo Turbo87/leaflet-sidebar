@@ -2,6 +2,8 @@
 
 A responsive sidebar plugin for [Leaflet](http://leafletjs.com/), a JS library for interactive maps.
 
+<a href="https://flattr.com/submit/auto?user_id=turbo&url=https%3A%2F%2Fgithub.com%2FTurbo87%2Fleaflet-sidebar" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+
 
 ## Examples
 
