@@ -121,4 +121,4 @@ The leaflet-sidebar plugin has been tested on the following systems and browsers
 
 ## License
 
-leaflet-sidebar is free software, and may be redistributed under the MIT license.
+leaflet-sidebar is free software, and may be redistributed under the [MIT license](LICENSE).
