@@ -119,7 +119,7 @@ L.Control.Sidebar = L.Control.extend({
         if (!this.isVisible()) {
             L.DomUtil.addClass(this._container, 'visible');
             if (this.options.autoPan) {
-                this._map.panBy([-this.getOffset() / 2, 0], {
+                this._map.panBy(this.getOffset().multiplyBy(-1), {
                     duration: 0.5
                 });
             }
@@ -131,7 +131,7 @@ L.Control.Sidebar = L.Control.extend({
         if (this.isVisible()) {
             L.DomUtil.removeClass(this._container, 'visible');
             if (this.options.autoPan) {
-                this._map.panBy([this.getOffset() / 2, 0], {
+                this._map.panBy(this.getOffset(), {
                     duration: 0.5
                 });
             }
@@ -164,10 +164,14 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     getOffset: function () {
-        if (this.options.position === 'right') {
-            return -this._container.offsetWidth;
+        if (this.options.position === 'top') {
+            return L.point(0, this._container.offsetHeight / 2);
+        } else if (this.options.position === 'bottom'){
+			return L.point(0, -this._container.offsetHeight / 2);
+        } else if (this.options.position === 'right'){
+			return L.point(-this._container.offsetWidth / 2, 0);
         } else {
-            return this._container.offsetWidth;
+			return L.point(this._container.offsetWidth / 2, 0);
         }
     },
 
