@@ -17,7 +17,7 @@ var banner = '/*! {{ pkg.name }} v{{ pkg.version }} */';
 // SASS compilation
 gulp.task('sass', function () {
     gulp.src('./src/*.scss')
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./src'));
 });
 
