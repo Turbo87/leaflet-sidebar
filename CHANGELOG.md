@@ -1,8 +1,9 @@
 # Changelog
 
-## v0.1.7 (not yet released)
+## v0.1.7 (2015-09-09)
 
 - Catch context menu events on sidebar (#23)
+- Fix jQuery event handlers/Bootstrap controls on sidebar (#31)
 
 
 ## v0.1.6 (2014-08-23)
