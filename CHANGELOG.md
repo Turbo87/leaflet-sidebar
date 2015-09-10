@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.8 (2015-09-10)
+
+- Fix text selection on sidebar (see #31)
+
+
 ## v0.1.7 (2015-09-09)
 
 - Catch context menu events on sidebar (#23)
