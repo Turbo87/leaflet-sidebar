@@ -62,10 +62,10 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-            .on(content, 'contextmenu', fakeStop)
+            .on(content, 'contextmenu', stop)
             .on(content, 'click', fakeStop)
-            .on(content, 'mousedown', fakeStop)
-            .on(content, 'touchstart', fakeStop)
+            .on(content, 'mousedown', stop)
+            .on(content, 'touchstart', stop)
             .on(content, 'dblclick', fakeStop)
             .on(content, 'mousewheel', stop)
             .on(content, 'MozMousePixelScroll', stop);
@@ -90,10 +90,10 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-            .off(content, 'contextmenu', fakeStop)
+            .off(content, 'contextmenu', stop)
             .off(content, 'click', fakeStop)
-            .off(content, 'mousedown', fakeStop)
-            .off(content, 'touchstart', fakeStop)
+            .off(content, 'mousedown', stop)
+            .off(content, 'touchstart', stop)
             .off(content, 'dblclick', fakeStop)
             .off(content, 'mousewheel', stop)
             .off(content, 'MozMousePixelScroll', stop);
