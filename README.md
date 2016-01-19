@@ -9,7 +9,7 @@ Please also have a look at [sidebar-v2](https://github.com/Turbo87/sidebar-v2), 
 
 ## Examples
 
-![Basic example](http://turbo87.github.io/leaflet-sidebar/leaflet-sidebar.gif)
+![Basic example](leaflet-sidebar.gif)
 
 Examples are available in the `examples` folder and on Github Pages:
 
