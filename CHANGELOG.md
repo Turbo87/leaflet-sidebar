@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.9 (2016-01-19)
+
+- Fix unresolved variable error in `removeFrom()` method (see #38)
+
+
 ## v0.1.8 (2015-09-10)
 
 - Fix text selection on sidebar (see #31)
