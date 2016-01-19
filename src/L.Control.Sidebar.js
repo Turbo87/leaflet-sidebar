@@ -77,6 +77,7 @@ L.Control.Sidebar = L.Control.extend({
         //if the control is visible, hide it before removing it.
         this.hide();
 
+		var container = this._container;
         var content = this._contentContainer;
 
         // Remove sidebar container from controls container
