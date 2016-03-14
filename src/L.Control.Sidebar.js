@@ -161,7 +161,14 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     setContent: function (content) {
-        this.getContainer().innerHTML = content;
+        if (typeof content === 'string') {
+            this.getContainer().innerHTML = content;
+        } else {
+            this._content = content;
+        }
+
+        this.update();
+        
         return this;
     },
 
