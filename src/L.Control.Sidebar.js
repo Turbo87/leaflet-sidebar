@@ -161,20 +161,20 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     setContent: function (content) {
-      var container = this.getContainer();
+        var container = this.getContainer();
 
-      if (typeof content === 'string') {
-          container.innerHTML = content;
-      } else {
-          // clean current content
-          while (container.firstChild) {
-              container.removeChild(container.firstChild);
-          }
+        if (typeof content === 'string') {
+            container.innerHTML = content;
+        } else {
+            // clean current content
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
 
-          container.appendChild(content);
-      }
+            container.appendChild(content);
+        }
 
-      return this;
+        return this;
     },
 
     getOffset: function () {
