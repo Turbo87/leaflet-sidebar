@@ -162,7 +162,19 @@ L.Control.Sidebar = L.Control.extend({
     },
 
     setContent: function (content) {
-        this.getContainer().innerHTML = content;
+        var container = this.getContainer();
+
+        if (typeof content === 'string') {
+            container.innerHTML = content;
+        } else {
+            // clean current content
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+
+            container.appendChild(content);
+        }
+
         return this;
     },
 
