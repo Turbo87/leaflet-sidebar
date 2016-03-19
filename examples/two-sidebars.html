@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>leaflet-sidebar example</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <link rel="stylesheet" href="../src/L.Control.Sidebar.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+        }
+
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar-left">
+        <h1>left sidebar</h1>
+    </div>
+    <div id="sidebar-right">
+        <h1>right sidebar</h1>
+    </div>
+
+    <div id="map"></div>
+
+    <a href="https://github.com/Turbo87/leaflet-sidebar/"><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 3000" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="../src/L.Control.Sidebar.js"></script>
+
+    <script>
+        var map = L.map('map');
+        map.setView([51.2, 7], 9);
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var leftSidebar = L.control.sidebar('sidebar-left', {
+            position: 'left'
+        });
+        map.addControl(leftSidebar);
+
+        var rightSidebar = L.control.sidebar('sidebar-right', {
+            position: 'right'
+        });
+        map.addControl(rightSidebar);
+
+        setTimeout(function () {
+            leftSidebar.toggle();
+        }, 500);
+
+        setTimeout(function () {
+            rightSidebar.toggle();
+        }, 2500);
+
+        setInterval(function () {
+            leftSidebar.toggle();
+        }, 5000);
+
+        setInterval(function () {
+            rightSidebar.toggle();
+        }, 7000);
+    </script>
+</body>
+</html>
