@@ -21,7 +21,9 @@ $transition-duration: 0.5s;
 }
 
 @mixin widths($width) {
-    width: $width;
+    &.left.visible, &.right.visible {
+        width: $width;
+    }
 
     &.left.visible ~ .leaflet-left {
         left: $width;
@@ -32,9 +34,22 @@ $transition-duration: 0.5s;
     }
 }
 
+@mixin heights($height) {
+    &.top.visible, &.bottom.visible {
+        height: $height;
+    }
+
+    &.top.visible ~ .leaflet-top {
+        top: $height;
+    }
+
+    &.bottom.visible ~ .leaflet-bottom {
+        bottom: $height;
+    }
+}
+
 .leaflet-sidebar {
     position: absolute;
-    height: 100%;
 
     @include box-sizing(border-box);
     padding: 10px;
@@ -63,10 +78,46 @@ $transition-duration: 0.5s;
         }
     }
 
-    & > .leaflet-control {
-        height: 100%;
-        width: 100%;
+    &.top {
+        top: -500px;
+        transition: top $transition-duration, width $transition-duration;
 
+        padding-bottom: 0;
+
+        &.visible {
+            top: 0;
+        }
+    }
+
+    &.bottom {
+        bottom: -500px;
+        transition: bottom $transition-duration, width $transition-duration;
+
+        padding-top: 0;
+
+        &.visible {
+            bottom: 0;
+        }
+    }
+
+    &.left, &.right {
+        height: 100%;
+        > .leaflet-control {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &.top, &.bottom {
+        width: 100%;
+        & > .leaflet-control {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+
+    & > .leaflet-control {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
 
@@ -89,8 +140,6 @@ $transition-duration: 0.5s;
     @media(max-width:$threshold-sm - 1px) {
         @include widths($width-xs);
 
-        padding: 0;
-
         &.left {
             left: -$width-xs;
 
@@ -107,12 +156,49 @@ $transition-duration: 0.5s;
             }
         }
 
-        & > .leaflet-control {
-            box-shadow: none;
-            @include border-radius(0);
+        &.left, &.right {
+            padding: 0;
 
-            .leaflet-touch & {
-                border: 0;
+            & > .leaflet-control {
+                box-shadow: none;
+                @include border-radius(0);
+
+                .leaflet-touch & {
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    @media(max-height:$threshold-sm - 1px) {
+        @include heights($width-xs);
+
+        &.top {
+            top: -$width-xs;
+
+            &.visible {
+                top: 0;
+            }
+        }
+
+        &.bottom {
+            bottom: -$width-xs;
+
+            &.visible {
+                bottom: 0;
+            }
+        }
+
+        &.top, &.bottom{
+            padding: 0;
+
+            & > .leaflet-control {
+                box-shadow: none;
+                @include border-radius(0);
+
+                .leaflet-touch & {
+                    border: 0;
+                }
             }
         }
     }
@@ -120,13 +206,22 @@ $transition-duration: 0.5s;
     @media(min-width:$threshold-sm) and (max-width:$threshold-md - 1px) {
         @include widths($width-sm);
     }
+    @media(min-height:$threshold-sm) and (max-height:$threshold-md - 1px) {
+        @include heights($width-sm);
+    }
 
     @media(min-width:$threshold-md) and (max-width:$threshold-lg - 1px) {
         @include widths($width-md);
     }
+    @media(min-height:$threshold-md) and (max-height:$threshold-lg - 1px) {
+        @include heights($width-md);
+    }
 
     @media(min-width:$threshold-lg) {
         @include widths($width-lg);
+    }
+    @media(min-height:$threshold-lg) {
+        @include heights($width-lg);
     }
 
     .close {
@@ -154,4 +249,12 @@ $transition-duration: 0.5s;
 
 .leaflet-right {
     transition: right $transition-duration;
+}
+
+.leaflet-top {
+    transition: top $transition-duration;
+}
+
+.leaflet-bottom {
+    transition: bottom $transition-duration;
 }

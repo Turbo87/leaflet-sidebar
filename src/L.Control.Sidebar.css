@@ -1,6 +1,5 @@
 .leaflet-sidebar {
   position: absolute;
-  height: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -18,9 +17,29 @@
     padding-left: 0; }
     .leaflet-sidebar.right.visible {
       right: 0; }
+  .leaflet-sidebar.top {
+    top: -500px;
+    transition: top 0.5s, width 0.5s;
+    padding-bottom: 0; }
+    .leaflet-sidebar.top.visible {
+      top: 0; }
+  .leaflet-sidebar.bottom {
+    bottom: -500px;
+    transition: bottom 0.5s, width 0.5s;
+    padding-top: 0; }
+    .leaflet-sidebar.bottom.visible {
+      bottom: 0; }
+  .leaflet-sidebar.left, .leaflet-sidebar.right {
+    height: 100%; }
+    .leaflet-sidebar.left > .leaflet-control, .leaflet-sidebar.right > .leaflet-control {
+      height: 100%;
+      width: 100%; }
+  .leaflet-sidebar.top, .leaflet-sidebar.bottom {
+    width: 100%; }
+    .leaflet-sidebar.top > .leaflet-control, .leaflet-sidebar.bottom > .leaflet-control {
+      height: 100%;
+      width: 100%; }
   .leaflet-sidebar > .leaflet-control {
-    height: 100%;
-    width: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     -webkit-box-sizing: border-box;
@@ -37,48 +56,93 @@
       border: 2px solid rgba(0, 0, 0, 0.2);
       background-clip: padding-box; }
   @media (max-width: 767px) {
-    .leaflet-sidebar {
-      width: 100%;
+    .leaflet-sidebar.left.visible, .leaflet-sidebar.right.visible {
+      width: 100%; }
+    .leaflet-sidebar.left.visible ~ .leaflet-left {
+      left: 100%; }
+    .leaflet-sidebar.right.visible ~ .leaflet-right {
+      right: 100%; }
+    .leaflet-sidebar.left {
+      left: -100%; }
+      .leaflet-sidebar.left.visible {
+        left: 0; }
+    .leaflet-sidebar.right {
+      right: -100%; }
+      .leaflet-sidebar.right.visible {
+        right: 0; }
+    .leaflet-sidebar.left, .leaflet-sidebar.right {
       padding: 0; }
-      .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 100%; }
-      .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 100%; }
-      .leaflet-sidebar.left {
-        left: -100%; }
-        .leaflet-sidebar.left.visible {
-          left: 0; }
-      .leaflet-sidebar.right {
-        right: -100%; }
-        .leaflet-sidebar.right.visible {
-          right: 0; }
-      .leaflet-sidebar > .leaflet-control {
+      .leaflet-sidebar.left > .leaflet-control, .leaflet-sidebar.right > .leaflet-control {
         box-shadow: none;
         -webkit-border-radius: 0;
         border-radius: 0; }
-        .leaflet-touch .leaflet-sidebar > .leaflet-control {
+        .leaflet-touch .leaflet-sidebar.left > .leaflet-control, .leaflet-touch .leaflet-sidebar.right > .leaflet-control {
+          border: 0; } }
+  @media (max-height: 767px) {
+    .leaflet-sidebar.top.visible, .leaflet-sidebar.bottom.visible {
+      height: 100%; }
+    .leaflet-sidebar.top.visible ~ .leaflet-top {
+      top: 100%; }
+    .leaflet-sidebar.bottom.visible ~ .leaflet-bottom {
+      bottom: 100%; }
+    .leaflet-sidebar.top {
+      top: -100%; }
+      .leaflet-sidebar.top.visible {
+        top: 0; }
+    .leaflet-sidebar.bottom {
+      bottom: -100%; }
+      .leaflet-sidebar.bottom.visible {
+        bottom: 0; }
+    .leaflet-sidebar.top, .leaflet-sidebar.bottom {
+      padding: 0; }
+      .leaflet-sidebar.top > .leaflet-control, .leaflet-sidebar.bottom > .leaflet-control {
+        box-shadow: none;
+        -webkit-border-radius: 0;
+        border-radius: 0; }
+        .leaflet-touch .leaflet-sidebar.top > .leaflet-control, .leaflet-touch .leaflet-sidebar.bottom > .leaflet-control {
           border: 0; } }
   @media (min-width: 768px) and (max-width: 991px) {
-    .leaflet-sidebar {
+    .leaflet-sidebar.left.visible, .leaflet-sidebar.right.visible {
       width: 305px; }
-      .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 305px; }
-      .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 305px; } }
+    .leaflet-sidebar.left.visible ~ .leaflet-left {
+      left: 305px; }
+    .leaflet-sidebar.right.visible ~ .leaflet-right {
+      right: 305px; } }
+  @media (min-height: 768px) and (max-height: 991px) {
+    .leaflet-sidebar.top.visible, .leaflet-sidebar.bottom.visible {
+      height: 305px; }
+    .leaflet-sidebar.top.visible ~ .leaflet-top {
+      top: 305px; }
+    .leaflet-sidebar.bottom.visible ~ .leaflet-bottom {
+      bottom: 305px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
-    .leaflet-sidebar {
+    .leaflet-sidebar.left.visible, .leaflet-sidebar.right.visible {
       width: 390px; }
-      .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 390px; }
-      .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 390px; } }
+    .leaflet-sidebar.left.visible ~ .leaflet-left {
+      left: 390px; }
+    .leaflet-sidebar.right.visible ~ .leaflet-right {
+      right: 390px; } }
+  @media (min-height: 992px) and (max-height: 1199px) {
+    .leaflet-sidebar.top.visible, .leaflet-sidebar.bottom.visible {
+      height: 390px; }
+    .leaflet-sidebar.top.visible ~ .leaflet-top {
+      top: 390px; }
+    .leaflet-sidebar.bottom.visible ~ .leaflet-bottom {
+      bottom: 390px; } }
   @media (min-width: 1200px) {
-    .leaflet-sidebar {
+    .leaflet-sidebar.left.visible, .leaflet-sidebar.right.visible {
       width: 460px; }
-      .leaflet-sidebar.left.visible ~ .leaflet-left {
-        left: 460px; }
-      .leaflet-sidebar.right.visible ~ .leaflet-right {
-        right: 460px; } }
+    .leaflet-sidebar.left.visible ~ .leaflet-left {
+      left: 460px; }
+    .leaflet-sidebar.right.visible ~ .leaflet-right {
+      right: 460px; } }
+  @media (min-height: 1200px) {
+    .leaflet-sidebar.top.visible, .leaflet-sidebar.bottom.visible {
+      height: 460px; }
+    .leaflet-sidebar.top.visible ~ .leaflet-top {
+      top: 460px; }
+    .leaflet-sidebar.bottom.visible ~ .leaflet-bottom {
+      bottom: 460px; } }
   .leaflet-sidebar .close {
     position: absolute;
     right: 20px;
@@ -100,3 +164,9 @@
 
 .leaflet-right {
   transition: right 0.5s; }
+
+.leaflet-top {
+  transition: top 0.5s; }
+
+.leaflet-bottom {
+  transition: bottom 0.5s; }

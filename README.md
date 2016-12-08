@@ -15,7 +15,8 @@ Examples are available in the `examples` folder and on Github Pages:
 
 * [Basic example](http://turbo87.github.io/leaflet-sidebar/examples/)
 * [mapbox.js listing-markers example](http://turbo87.github.io/leaflet-sidebar/examples/listing-markers.html)
-* [Example with 2 sidebars](http://turbo87.github.io/leaflet-sidebar/examples/two-sidebars.html)
+* [Example with 2 vertical sidebars](http://turbo87.github.io/leaflet-sidebar/examples/two-sidebars.html)
+* [Example with 2 horizontal sidebars](http://turbo87.github.io/leaflet-sidebar/examples/horizontal-sidebars.html)
 
 
 ## Using the plugin
@@ -82,7 +83,7 @@ If you need more flexibility you can use `sidebar.getContainer()` to get the con
 
 The sidebar can be configured with these options:
 
-- **position**: Can be `left` (default) or `right` and shouldn't need explaining.
+- **position**: Can be `left` (default), `right`, `top` or `bottom` and shouldn't need explaining.
 - **closeButton**: Can be `true` (default) or `false`. If `true` a close button will be added to the sidebar.
 - **autoPan**: Can be `true` (default) or `false`. If `true` the map will be shifted when the sidebar is shown.
 
