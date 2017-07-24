@@ -1,6 +1,6 @@
 {
   "name": "leaflet-sidebar",
-  "version": "0.2.8",
+  "version": "0.2.0",
   "description": "A responsive sidebar plugin for Leaflet",
   "keywords": [
     "gis",
