@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>leaflet-sidebar multiple-maps example</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <link rel="stylesheet" href="../src/L.Control.Sidebar.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+    <style>
+        body {
+            padding: 30px;
+            font-family: sans-serif;
+        }
+
+        #map1 {
+            width: 50%;
+            height: 600px;
+            border-radius: 10px;
+        }
+        #map2 {
+            width: 50%;
+            height: 600px;
+            border-radius: 10px;
+        }
+
+        #sidebar1 {
+            padding: 24px;
+            font-family: monospace;
+        }
+        
+        #sidebar2 {
+            padding: 24px;
+            font-family: monospace;
+        }
+        
+        .container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="sidebar1"></div>
+        <div id="map1"></div>
+
+        <div id="sidebar2"></div>
+        <div id="map2"></div>
+    </div>
+
+    <p>This is based on a <a href="https://www.mapbox.com/mapbox.js/example/v1.0.0/listing-markers/">mapbox.js example</a>, but implemented with the leaflet-sidebar plugin instead.</p>
+
+    <a href="https://github.com/Turbo87/leaflet-sidebar/"><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 3000" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="../src/L.Control.Sidebar.js"></script>
+
+    <script>
+        var map1 = L.map('map1');
+        var map2 = L.map('map2');
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; OpenStreetMap contributors'
+        }).addTo(map1);
+        
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; OpenStreetMap contributors'
+        }).addTo(map2);
+
+        var sidebar1 = L.control.sidebar('sidebar1', {
+            closeButton: false,
+            position: 'right'
+        });
+        
+        var sidebar2 = L.control.sidebar('sidebar2', {
+            closeButton: false,
+            position: 'right'
+        });
+        
+        map1.addControl(sidebar1);
+        map2.addControl(sidebar2);
+
+        setTimeout(function () {
+            sidebar1.show();
+            sidebar2.show();
+        }, 500);
+
+
+        var markers1 = [];
+        var markers2 = [];
+
+        for (var x = -120; x < 120; x += 20) {
+            for (var y = -80; y < 80; y += 10) {
+                var marker1 = L.marker([x, y]).addTo(map1);
+                var marker2 = L.marker([x, y]).addTo(map2);
+                marker1.options.title = [x, y].join(',');
+                marker2.options.title = [x, y].join(',');
+                
+                markers1.push(marker1);
+                markers2.push(marker2)
+            }
+        }
+
+        map1.on('move', function() {
+            // construct an empty list to fill with onscreen markers
+            var inBounds = [],
+            // get the map bounds - the top-left and bottom-right locations
+                bounds = map1.getBounds();
+
+            // for each marker, consider whether it is currently visible by comparing
+            // with the current map bounds
+            for (var i = 0, len = markers1.length; i < len; i++) {
+                var marker = markers1[i];
+                if (bounds.contains(marker.getLatLng())) {
+                    inBounds.push(marker.options.title);
+                }
+            }
+
+            // display a list of markers.
+            sidebar1.setContent(inBounds.join('<br>\n'));
+        });
+        
+        map2.on('move', function() {
+            // construct an empty list to fill with onscreen markers
+            var inBounds = [],
+            // get the map bounds - the top-left and bottom-right locations
+                bounds = map2.getBounds();
+
+            // for each marker, consider whether it is currently visible by comparing
+            // with the current map bounds
+            for (var i = 0, len = markers2.length; i < len; i++) {
+                var marker = markers2[i];
+                if (bounds.contains(marker.getLatLng())) {
+                    inBounds.push(marker.options.title);
+                }
+            }
+
+            // display a list of markers.
+            sidebar2.setContent(inBounds.join('<br>\n'));
+        });
+
+        map1.setView([37, -77], 5);
+        map2.setView([37, -77], 5);
+    </script>
+</body>
+</html>
