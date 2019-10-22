@@ -1,4 +1,10 @@
-L.Control.Sidebar = L.Control.extend({
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('leaflet')) :
+    typeof define === 'function' && define.amd ? define(['leaflet'], factory) :
+    (global = global || self, global.myBundle = factory(global.L));
+}(this, function (L) { 'use strict';
+
+var Sidebar = L.Control.extend({
 
     includes: L.Evented ? L.Evented.prototype : L.Mixin.Events,
 
@@ -12,10 +18,17 @@ L.Control.Sidebar = L.Control.extend({
         L.setOptions(this, options);
 
         // Find content container
-        var content = this._contentContainer = L.DomUtil.get(placeholder);
-
+        var content;
+        if (typeof placeholder === 'string') {
+            content = L.DomUtil.get(placeholder);
+        } else if (placeholder instanceof HTMLElement) {
+            content = placeholder;
+        }
+        this._contentContainer = content;
         // Remove the content container from its original parent
-        content.parentNode.removeChild(content);
+        if (content.parentNode) {
+            content.parentNode.removeChild(content);
+        }
 
         var l = 'leaflet-';
 
@@ -192,6 +205,12 @@ L.Control.Sidebar = L.Control.extend({
     }
 });
 
+L.Control.Sidebar = Sidebar;
+
 L.control.sidebar = function (placeholder, options) {
-    return new L.Control.Sidebar(placeholder, options);
+    return new Sidebar(placeholder, options);
 };
+
+return Sidebar;
+
+}));
