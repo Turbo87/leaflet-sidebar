@@ -68,6 +68,8 @@ L.Control.Sidebar = L.Control.extend({
             .on(content, 'touchstart', stop)
             .on(content, 'dblclick', fakeStop)
             .on(content, 'mousewheel', stop)
+            .on(content, 'wheel', stop)
+            .on(content, 'scroll', stop)
             .on(content, 'MozMousePixelScroll', stop);
 
         return this;
@@ -97,6 +99,8 @@ L.Control.Sidebar = L.Control.extend({
             .off(content, 'touchstart', stop)
             .off(content, 'dblclick', fakeStop)
             .off(content, 'mousewheel', stop)
+            .off(content, 'wheel', stop)
+            .off(content, 'scroll', stop)
             .off(content, 'MozMousePixelScroll', stop);
 
         L.DomEvent
