@@ -93,7 +93,7 @@
     -webkit-border-radius: 16px;
     border-radius: 16px;
     cursor: pointer;
-    z-index: 8; }
+    z-index: 1000; }
 
 .leaflet-left {
   transition: left 0.5s; }
