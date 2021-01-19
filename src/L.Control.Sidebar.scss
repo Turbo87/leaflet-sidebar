@@ -144,7 +144,8 @@ $transition-duration: 0.5s;
         @include border-radius(16px);
         cursor: pointer;
 
-        z-index: 8;
+        // https://github.com/Turbo87/leaflet-sidebar/issues/36
+        z-index: 1000;
     }
 }
 
