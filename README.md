@@ -69,11 +69,20 @@ setTimeout(function () {
 
 Do not call `show()` directly after adding the control to the map. The `setTimeout` will work around some CSS quirks for you.
 
-The content of the sidebar can be changed dynamically:
+The content of the sidebar can be changed dynamically by calling `setContent()`
+again, e.g. from a map event handler:
 
 ~~~~javascript
-sidebar.setContent('test <b>test</b> test');
+map.on('move', function () {
+    sidebar.setContent('Map center: ' + map.getCenter().toString());
+});
 ~~~~
+
+`setContent()` replaces the entire body of the sidebar each time it is called, so build up
+the full HTML string (or DOM element) you want beforehand. See the
+[listing-markers example](http://turbo87.github.io/leaflet-sidebar/examples/listing-markers.html)
+([source](examples/listing-markers.html)) for a working demonstration that rebuilds the sidebar
+content on every `move` event.
 
 If you need more flexibility you can use `sidebar.getContainer()` to get the content container element or use e.g. jQuery on the `<div id="sidebar">` element.
 
